@@ -1,4 +1,7 @@
 package agh.ics.oop;
+import java.util.List;
+import agh.ics.oop.model.MoveDirection;
+import static agh.ics.oop.OptionsParser.parse;
 
 public class World {
     public static void main(String[] args) {
@@ -8,11 +11,19 @@ public class World {
     }
 
     public static void run(String[] args) {
-        System.out.println("zwierzak idzie do przodu");
-        for(int i=0;i<args.length-1;i++) {
-            System.out.print(args[i] + ", ");
-        }
-        System.out.println(args[args.length-1]);
+        System.out.println("Start");
+        List<MoveDirection> moves = parse(args);
+
+    for (int i = 0; i < moves.size(); i++)
+    {
+        System.out.println(moves.get(i));
+    }
+
+
+
+
+
+        System.out.println("Stop");
     }
 
 }
