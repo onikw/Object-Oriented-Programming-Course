@@ -1,23 +1,33 @@
 package agh.ics.oop;
-import java.util.List;
+
+import agh.ics.oop.model.MapDirection;
 import agh.ics.oop.model.MoveDirection;
-import static agh.ics.oop.OptionsParser.parse;
 
 public class World {
+
+
     public static void main(String[] args) {
         System.out.println("system wystartował");
+
+
+        MapDirection dir = MapDirection.NORTH;
+        //chyba println używa nadpisnoego tostringa i dlatego po polsku jest
+        System.out.println(dir.previous());
+
+
+        System.out.println(dir.toUnitVector());
         run(args);
         System.out.println("system zakończył działanie");
     }
 
     public static void run(String[] args) {
         System.out.println("Start");
-        List<MoveDirection> moves = parse(args);
+        MoveDirection[] moves = OptionsParser.parse(args);
 
-    for (int i = 0; i < moves.size(); i++)
-    {
-        System.out.println(moves.get(i));
-    }
+        for (MoveDirection move : moves) {
+            System.out.println(move);
+        }
+
 
 
 
