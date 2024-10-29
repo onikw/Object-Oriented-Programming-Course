@@ -18,6 +18,8 @@ public class Vector2d {
     public int getY() {
         return y;
     }
+
+    @Override
     public String toString()
     {
         return "(" + x + "," + y + ")";
@@ -50,18 +52,17 @@ public class Vector2d {
     {
         return new Vector2d(-x,-y);
     }
-    public boolean equals(Object other)
-    {
-        if(other instanceof Vector2d)
-            return x== ((Vector2d) other).x && y== ((Vector2d) other).y;
-        else
-            return false;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector2d vector2d = (Vector2d) o;
+        return x == vector2d.x && y == vector2d.y;
     }
 
-    //Zapytać o to coś
-    public int hashCode()
-    {
-        return Objects.hash(x,y);
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

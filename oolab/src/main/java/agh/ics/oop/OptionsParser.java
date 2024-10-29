@@ -7,19 +7,17 @@ import java.util.List;
 
 
 public class OptionsParser {
-    public static MoveDirection[] parse(String[] args) {
-        List<MoveDirection> output = new ArrayList<>();
-
-        for(String arg : args) {
+    public static List<MoveDirection> parse(String[] args)
+    {
+        List<MoveDirection> moves = new ArrayList<>();
+        for(String arg : args)
             switch(arg) {
-                case "f" -> output.add(MoveDirection.FORWARD);
-                case "b" -> output.add(MoveDirection.BACKWARD);
-                case "r" -> output.add(MoveDirection.RIGHT);
-                case "l" -> output.add(MoveDirection.LEFT);
+                case "f" -> moves.add(MoveDirection.FORWARD);
+                case "b" -> moves.add(MoveDirection.BACKWARD);
+                case "r" -> moves.add(MoveDirection.RIGHT);
+                case "l" -> moves.add(MoveDirection.LEFT);
                 default -> System.out.println("Wrong letter");
             }
-        }
-
-        return output.toArray(new MoveDirection[0]);
+        return moves;
     }
 }
