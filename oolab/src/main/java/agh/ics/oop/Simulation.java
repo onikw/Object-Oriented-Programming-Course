@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Simulation {
-    private static final String ANIMAL = "Zwierze";
-
 
     private int numberOfAnimals = 0;
     private int movesCount = 0;
@@ -19,6 +17,7 @@ public class Simulation {
 
     public Simulation(List<Vector2d> initialPositions, List<MoveDirection> moves, WorldMap worldMap)
     {
+
         this.movesCount = moves.size();
         this.numberOfAnimals = initialPositions.size();
         this.moves =  moves;
@@ -33,12 +32,12 @@ public class Simulation {
 
     }
     public List<Animal> getAnimals() {
-        return this.animals;
+        return animals;
     }
 
     public void Run()
     {
-        System.out.println(this.worldMap);
+        System.out.println(worldMap);
         for (int i = 0; i < movesCount; i++)
         {
 
@@ -46,8 +45,8 @@ public class Simulation {
             Animal animal =  animals.get(i%numberOfAnimals);
             MoveDirection move = moves.get(i);
 
-            this.worldMap.move(animal, move);
-            System.out.println(this.worldMap);
+            worldMap.move(animal, move);
+            System.out.println(worldMap);
 
         }
 

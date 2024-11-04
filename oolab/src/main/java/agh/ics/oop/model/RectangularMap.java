@@ -14,13 +14,9 @@ public class RectangularMap implements WorldMap {
     public RectangularMap (int width, int height)
     {
         this.lowerLeft = new Vector2d(0,0);
-        this.upperRight = new Vector2d(width-1,height-1);
+        this.upperRight = new Vector2d(width,height);
         this.animals= new HashMap<>();
         this.visualizer = new MapVisualizer(this);
-
-
-
-
     }
 
     @Override
