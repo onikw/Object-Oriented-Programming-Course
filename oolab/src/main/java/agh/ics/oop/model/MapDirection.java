@@ -1,19 +1,21 @@
 package agh.ics.oop.model;
 
 public enum MapDirection   {
-        NORTH, EAST, SOUTH, WEST;
+    NORTH, EAST, SOUTH, WEST;
 
+    static final String[] ROSE = {"Polnoc", "Wschod", "Poludnie", "Zachod"};
+    static final Vector2d[] ROSE_VECTORS = {
+            new Vector2d(0, 1),
+            new Vector2d(1, 0),
+            new Vector2d(0, -1),
+            new Vector2d(-1, 0)
+    };
+    @Override
     public  String toString() {
-        return switch (this) {
-            case NORTH -> "Polnoc";
-            case EAST -> "Wschod";
-            case SOUTH -> "Poludnie";
-            case WEST -> "Zachod";
-            };
-
+        return ROSE[this.ordinal()];
     }
     public MapDirection next()
-    {//czemu tak działa dopytać
+    {
         return MapDirection.values()[(this.ordinal()+1)%MapDirection.values().length];
     }
     public MapDirection previous()
@@ -22,13 +24,6 @@ public enum MapDirection   {
     }
     public Vector2d toUnitVector()
     {
-        return switch (this)
-        {
-            case NORTH -> new Vector2d(0, 1);
-            case EAST -> new Vector2d(1, 0);
-            case SOUTH -> new Vector2d(0, -1);
-            case WEST -> new Vector2d(-1, 0);
-
-        };
+        return ROSE_VECTORS[this.ordinal()];
     }
 }
