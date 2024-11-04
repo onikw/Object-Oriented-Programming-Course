@@ -4,8 +4,6 @@ public class Animal  {
 
     private static final Vector2d DEFAULT_VECTOR = new Vector2d(2, 2);
     private static final MapDirection DEFAULT_ANIMAL_ORIENTATION = MapDirection.NORTH;
-    private static final String ANIMAL_COORDINATES_MESSAGE = "Położenie zwierzęcia to";
-    private  static final String ANIMAL_ORIENTATION_MESSAGE = "a jego orientacja to";
 
 
     private MapDirection animalOrientation;

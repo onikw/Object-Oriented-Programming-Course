@@ -5,7 +5,9 @@ import agh.ics.oop.model.util.MapVisualizer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RectangularMap implements WorldMap {
+public class RectangularMap implements WorldMap<Animal, Vector2d> {
+
+
     private final Vector2d lowerLeft;
     private final Vector2d upperRight;
     private final Map<Vector2d, Animal> animals;
@@ -18,6 +20,9 @@ public class RectangularMap implements WorldMap {
         this.animals= new HashMap<>();
         this.visualizer = new MapVisualizer(this);
     }
+
+
+
 
     @Override
     public boolean place(Animal animal) {
