@@ -1,11 +1,11 @@
 package agh.ics.oop.model;
 
-public class Animal {
+public class Animal  {
 
     private static final Vector2d DEFAULT_VECTOR = new Vector2d(2, 2);
     private static final MapDirection DEFAULT_ANIMAL_ORIENTATION = MapDirection.NORTH;
-    private static final Vector2d MAP_MIN_POINT = new Vector2d(0,0);
-    private static final Vector2d MAP_MAX_POINT = new Vector2d(4,4);
+    private static final String ANIMAL_COORDINATES_MESSAGE = "Położenie zwierzęcia to";
+    private  static final String ANIMAL_ORIENTATION_MESSAGE = "a jego orientacja to";
 
 
     private MapDirection animalOrientation;
@@ -23,8 +23,13 @@ public class Animal {
 
     public String toString()
     {
-        return "Położenie zwierzęcia to :" + this.animalCoordinates.toString()
-                + ", a jego orientacja to: " + this.animalOrientation.toString()+".";
+        return switch (this.animalOrientation)
+        {
+            case NORTH -> "^";
+            case EAST -> ">";
+            case SOUTH -> "v";
+            case WEST -> "<";
+        };
     }
 
     public boolean isAt(Vector2d position)
@@ -39,7 +44,8 @@ public class Animal {
     {
         return this.animalOrientation;
     }
-    public void move(MoveDirection direction) {
+
+    public void move(MoveDirection direction, WorldMap worldMap) {
         switch (direction)
         {
             case LEFT ->
@@ -55,10 +61,11 @@ public class Animal {
             {
                 Vector2d movecandidate =  new Vector2d(this.animalCoordinates.getX(), this.animalCoordinates.getY());
                 movecandidate =movecandidate.add(this.animalOrientation.toUnitVector());
-                if ( movecandidate.precedes(MAP_MAX_POINT) && movecandidate.follows(MAP_MIN_POINT) )
+
+
+                if (worldMap.canMoveTo(movecandidate))
                 {
                     this.animalCoordinates = movecandidate;
-
 
                 }
 
@@ -66,7 +73,9 @@ public class Animal {
             case BACKWARD -> {
                 Vector2d movecandidate = new Vector2d(this.animalCoordinates.getX(), this.animalCoordinates.getY());
                 movecandidate = movecandidate.add(this.animalOrientation.toUnitVector().opposite());
-                if (movecandidate.precedes(MAP_MAX_POINT) && movecandidate.follows(MAP_MIN_POINT)) {
+
+                if (worldMap.canMoveTo(movecandidate))
+                {
                     this.animalCoordinates = movecandidate;
                 }
             }

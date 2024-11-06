@@ -1,7 +1,6 @@
-package agh.ics.oop.model;
-
 import agh.ics.oop.OptionsParser;
 import agh.ics.oop.Simulation;
+import agh.ics.oop.model.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ public class SimulationTest {
     public void SimulationRunWithinBorders() {
         //GIVEN
         List<MoveDirection> directions = new ArrayList<>();
+        WorldMap newRecMap = new RectangularMap(4,4);
         directions.add(MoveDirection.FORWARD);
         directions.add(MoveDirection.FORWARD);
         directions.add(MoveDirection.RIGHT);
@@ -23,7 +23,7 @@ public class SimulationTest {
         directions.add(MoveDirection.FORWARD);
         List<Vector2d> positions = new ArrayList<>();
         positions.add(new Vector2d(2, 2));
-        Simulation simulation = new Simulation(positions, directions);
+        Simulation simulation = new Simulation(positions, directions,newRecMap);
 
 
         //WHEN
@@ -43,13 +43,14 @@ public class SimulationTest {
     public void SimulationRunNotValidMoves() {
         //GIVEN
         List<MoveDirection> directions = new ArrayList<>();
+        WorldMap newRecMap = new RectangularMap(4,4);
         directions.add(MoveDirection.FORWARD);
         directions.add(MoveDirection.RIGHT);
         directions.add(MoveDirection.BACKWARD);
         directions.add(MoveDirection.BACKWARD);
         List<Vector2d> positions = new ArrayList<>();
         positions.add(new Vector2d(0, 0));
-        Simulation simulation = new Simulation( positions, directions);
+        Simulation simulation = new Simulation( positions, directions,newRecMap);
 
         //WHEN
         simulation.Run();
@@ -69,8 +70,9 @@ public class SimulationTest {
         //GIVEN
         String[] args = {"f", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f", "f", "f", "f", "f", "f"};
         List<MoveDirection> directions = OptionsParser.parse(args);
+        WorldMap newRecMap = new RectangularMap(4,4);
         List<Vector2d> positions = List.of(new Vector2d(2, 2), new Vector2d(3, 4), new Vector2d(1, 1));
-        Simulation simulation = new Simulation(positions, directions);
+        Simulation simulation = new Simulation(positions, directions,newRecMap);
 
 
         //WHEN
