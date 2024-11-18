@@ -1,12 +1,9 @@
 package agh.ics.oop.model;
 
-public class Animal  {
+public class Animal implements WorldElement{
 
     private static final Vector2d DEFAULT_VECTOR = new Vector2d(2, 2);
     private static final MapDirection DEFAULT_ANIMAL_ORIENTATION = MapDirection.NORTH;
-    private static final String ANIMAL_COORDINATES_MESSAGE = "Położenie zwierzęcia to";
-    private  static final String ANIMAL_ORIENTATION_MESSAGE = "a jego orientacja to";
-
 
     private MapDirection animalOrientation;
     private Vector2d animalCoordinates;
@@ -32,14 +29,13 @@ public class Animal  {
         };
     }
 
-    public boolean isAt(Vector2d position)
-    {
-        return this.animalCoordinates.equals(position);
-    }
-    public Vector2d getAnimalCoordinates()
+    @Override
+    public Vector2d getPosition()
     {
         return this.animalCoordinates;
     }
+
+
     public MapDirection getAnimalOrientation()
     {
         return this.animalOrientation;
