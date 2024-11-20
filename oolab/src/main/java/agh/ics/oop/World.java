@@ -1,9 +1,6 @@
 package agh.ics.oop;
 
-import agh.ics.oop.model.MoveDirection;
-import agh.ics.oop.model.RectangularMap;
-import agh.ics.oop.model.Vector2d;
-import agh.ics.oop.model.WorldMap;
+import agh.ics.oop.model.*;
 
 import java.util.List;
 
@@ -17,11 +14,24 @@ public class World {
 
         //kiedy te this.
 
-        WorldMap newRecMap = new RectangularMap (4,4);
+
+        // RectangularMap
+        RectangularMap newRecMap = new RectangularMap (4,4);
         List<MoveDirection> directions = OptionsParser.parse(args);
-        List<Vector2d> positions = List.of(new Vector2d(2, 2), new Vector2d(3, 4), new Vector2d(1, 1));
-        Simulation simulation = new Simulation(positions, directions,newRecMap);
-        simulation.Run();
+        List<Animal> Animals = List.of(new Animal(new Vector2d(2, 2)), new Animal(new Vector2d(3, 4)), new Animal(new Vector2d(1, 1)));
+        Simulation<Animal,Vector2d> simulationRectangular = new Simulation<>(Animals, directions, newRecMap);
+        simulationRectangular.Run();
+
+
+        // TextMap
+        TextMap newTextMap = new TextMap();
+        List <String> texts = List.of("Ala", "ma", "sowoniedźwiedzia");
+
+        List<MoveDirection> directionsText = OptionsParser.parse(new String[]{"f","f","b","f"});
+        Simulation<String,Integer> simulationText = new Simulation<>(texts,directionsText,newTextMap);
+        simulationText.Run();
+
+
 
 
 

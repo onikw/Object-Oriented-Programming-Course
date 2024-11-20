@@ -1,54 +1,51 @@
 package agh.ics.oop;
 
-import agh.ics.oop.model.*;
+import agh.ics.oop.model.MoveDirection;
+import agh.ics.oop.model.WorldMap;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Simulation {
+public class Simulation<T, P>  {
 
-    private int numberOfAnimals = 0;
+    private int numberOfCreatures = 0;
     private int movesCount = 0;
 
     private final List<MoveDirection> moves;
-    private final List<Animal> animals;
-    private final WorldMap worldMap;
+    private final List<T> creatures;
+    private final WorldMap<T, P> worldMap;
 
 
-    public Simulation(List<Vector2d> initialPositions, List<MoveDirection> moves, WorldMap worldMap)
+    public Simulation(List<T> Creatures, List<MoveDirection> moves, WorldMap<T, P> worldMap)
     {
 
         this.movesCount = moves.size();
-        this.numberOfAnimals = initialPositions.size();
+        this.numberOfCreatures = Creatures.size();
         this.moves =  moves;
         this.worldMap = worldMap;
-        this.animals = new ArrayList<>();
-        for(Vector2d position : initialPositions) {
-            this.animals.add(new Animal(position));
-            this.worldMap.place(new Animal(position));
+        this.creatures = Creatures;
+
+
+        for (T creature : creatures) {
+            worldMap.place(creature);
         }
 
-
-
-    }
-    public List<Animal> getAnimals() {
-        return animals;
     }
 
-    public void Run()
-    {
+
+
+    public List<T> getCreatures() {
+        return creatures;
+    }
+
+    public void Run() {
         System.out.println(worldMap);
-        for (int i = 0; i < movesCount; i++)
-        {
-
-
-            Animal animal =  animals.get(i%numberOfAnimals);
+        for (int i = 0; i < movesCount; i++) {
+            T creature = creatures.get(i % numberOfCreatures);
             MoveDirection move = moves.get(i);
 
-            worldMap.move(animal, move);
+            worldMap.move(creature, move);
             System.out.println(worldMap);
-
         }
-
     }
+
 }
