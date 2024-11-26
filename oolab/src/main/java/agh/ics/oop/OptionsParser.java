@@ -16,7 +16,7 @@ public class OptionsParser {
                 case "b" -> moves.add(MoveDirection.BACKWARD);
                 case "r" -> moves.add(MoveDirection.RIGHT);
                 case "l" -> moves.add(MoveDirection.LEFT);
-                default -> System.out.println("Wrong letter");
+                default -> throw new IllegalArgumentException(arg + " - illegal move");
             }
         return moves;
     }

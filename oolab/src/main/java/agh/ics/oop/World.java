@@ -9,15 +9,20 @@ public class World {
 
     public static void main(String[] args) {
         System.out.println("system wystartował");
-
         //World czy Rec map
+        try {
 
-        WorldMap newRecMap = new GrassField(10);
-        List<MoveDirection> directions = OptionsParser.parse(args);
-        List<Vector2d> positions = List.of(new Vector2d(2, 2), new Vector2d(3, 4), new Vector2d(1, 1));
-        Simulation simulation = new Simulation(positions, directions,newRecMap);
-        simulation.Run();
-
+            AbstractWorldMap grassMap = new GrassField(10);
+            List<MoveDirection> directions = OptionsParser.parse(args);
+            List<Vector2d> positions = List.of(new Vector2d(2, 2), new Vector2d(3, 4), new Vector2d(1, 1));
+            grassMap.addObserver(new ConsoleMapDisplay());
+            Simulation simulation = new Simulation(positions, directions, grassMap);
+            simulation.Run();
+        }
+        catch (IllegalArgumentException e)
+        {
+            e.printStackTrace();
+        }
 
 //        WorldMap newRecMap = new RectangularMap (4,4);
 //        List<MoveDirection> directions = OptionsParser.parse(args);

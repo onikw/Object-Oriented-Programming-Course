@@ -1,3 +1,5 @@
+package agh.ics.oop;
+
 import agh.ics.oop.OptionsParser;
 import agh.ics.oop.Simulation;
 import agh.ics.oop.model.*;

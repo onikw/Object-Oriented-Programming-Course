@@ -18,6 +18,9 @@ public class Animal implements WorldElement{
         this.animalCoordinates = inputAnimalCoordinates;
     }
 
+    //dodać equals
+
+
     public String toString()
     {
         return switch (this.animalOrientation)
