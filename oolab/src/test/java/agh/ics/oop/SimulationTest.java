@@ -33,9 +33,9 @@ public class SimulationTest {
         //THEN
         assertEquals(1, animals.size());
         for (Animal animal : animals) {
-            assertTrue(animal.getAnimalCoordinates().equals(new Vector2d(2, 2)));
-            assertTrue(animal.getAnimalCoordinates().follows(new Vector2d(0, 0)));
-            assertTrue(animal.getAnimalCoordinates().precedes(new Vector2d(4, 4)));
+            assertTrue(animal.getPosition().equals(new Vector2d(2, 2)));
+            assertTrue(animal.getPosition().follows(new Vector2d(0, 0)));
+            assertTrue(animal.getPosition().precedes(new Vector2d(4, 4)));
         }
     }
 
@@ -61,7 +61,7 @@ public class SimulationTest {
 
         for (Animal animal : animals) {
             assertSame(animal.getAnimalOrientation(), MapDirection.EAST);
-            assertTrue(animal.getAnimalCoordinates().equals(new Vector2d(0, 1)));
+            assertTrue(animal.getPosition().equals(new Vector2d(0, 1)));
         }
     }
     @Test
@@ -83,12 +83,12 @@ public class SimulationTest {
         //THEN
         assertEquals(3, animals.size());
         for (Animal animal : animals) {
-            assertTrue(animal.getAnimalCoordinates().follows(new Vector2d(0, 0)));
-            assertTrue(animal.getAnimalCoordinates().precedes(new Vector2d(4, 4)));
+            assertTrue(animal.getPosition().follows(new Vector2d(0, 0)));
+            assertTrue(animal.getPosition().precedes(new Vector2d(4, 4)));
         }
 
         Animal animal = animals.get(0);
         assertTrue(animal.getAnimalOrientation() == MapDirection.NORTH);
-        assertTrue(animal.getAnimalCoordinates().equals(new Vector2d(2, 4)));
+        assertTrue(animal.getPosition().equals(new Vector2d(2, 4)));
     }
 }

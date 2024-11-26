@@ -30,7 +30,7 @@ public class RectangularMapTest {
         newRecMap.move(animal, MoveDirection.FORWARD);
 
         //THEN
-        assertEquals(new Vector2d(2, 3), animal.getAnimalCoordinates());
+        assertEquals(new Vector2d(2, 3), animal.getPosition());
     }
 
 
@@ -47,7 +47,7 @@ public class RectangularMapTest {
 
 
         //THEN
-        assertEquals(animal1.getAnimalCoordinates(), new Vector2d(2, 4));
+        assertEquals(animal1.getPosition(), new Vector2d(2, 4));
     }
 
     @Test
@@ -81,8 +81,8 @@ public class RectangularMapTest {
         newRecMap.move(animal2, MoveDirection.FORWARD);
 
         //THEN
-        assertEquals(new Vector2d(2, 1), animal1.getAnimalCoordinates());
-        assertEquals(new Vector2d(3, 3), animal2.getAnimalCoordinates());
+        assertEquals(new Vector2d(2, 1), animal1.getPosition());
+        assertEquals(new Vector2d(3, 3), animal2.getPosition());
     }
 
 }
