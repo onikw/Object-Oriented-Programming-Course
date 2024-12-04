@@ -1,7 +1,5 @@
 package agh.ics.oop;
 
-import agh.ics.oop.OptionsParser;
-import agh.ics.oop.Simulation;
 import agh.ics.oop.model.*;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +27,7 @@ public class SimulationTest {
 
 
         //WHEN
-        simulation.Run();
+        simulation.run();
         List<Animal> animals = simulation.getAnimals();
 
         //THEN
@@ -55,7 +53,7 @@ public class SimulationTest {
         Simulation simulation = new Simulation( positions, directions,newRecMap);
 
         //WHEN
-        simulation.Run();
+        simulation.run();
         List<Animal> animals = simulation.getAnimals();
 
 
@@ -78,7 +76,7 @@ public class SimulationTest {
 
 
         //WHEN
-        simulation.Run();
+        simulation.run();
         List<Animal> animals = simulation.getAnimals();
 
 
