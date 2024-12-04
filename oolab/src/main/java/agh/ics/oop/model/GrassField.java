@@ -41,6 +41,13 @@ public class GrassField extends AbstractWorldMap
     }
 
     @Override
+    public boolean isOccupied(Vector2d position)
+    {
+        return objectAt(position) != null;
+    }
+
+
+    @Override
     public String toString()
     {
         LinkedList<WorldElement> elements = this.getElements();

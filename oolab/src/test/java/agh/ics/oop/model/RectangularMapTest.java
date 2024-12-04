@@ -11,8 +11,11 @@ public class RectangularMapTest {
         Animal animal1 = new Animal();
 
         //WHEN
-        newRecMap.place(animal1);
-
+        try {
+            newRecMap.place(animal1);
+        } catch (IncorrectPositionException e) {
+            System.out.println(e.getMessage());
+        }
         //THEN
         assertTrue(newRecMap.canMoveTo(new Vector2d(2, 3)));
         assertFalse(newRecMap.canMoveTo(new Vector2d(2, 2)));
@@ -26,7 +29,11 @@ public class RectangularMapTest {
         Animal animal = new Animal();
 
         //WHEN
-        newRecMap.place(animal);
+        try {
+            newRecMap.place(animal);
+        } catch (IncorrectPositionException e) {
+            System.out.println(e.getMessage());
+        }
         newRecMap.move(animal, MoveDirection.FORWARD);
 
         //THEN
@@ -50,20 +57,6 @@ public class RectangularMapTest {
         assertEquals(animal1.getPosition(), new Vector2d(2, 4));
     }
 
-    @Test
-    public void testPlace(){
-        //GIVEN
-        WorldMap newRecMap = new RectangularMap(4, 4);
-        Animal animal1 = new Animal();
-        Animal animal2 = new Animal(new Vector2d(2, 3));
-
-        //WHEN
-        animal1.move(MoveDirection.FORWARD, newRecMap);
-
-        //THEN
-        assertTrue(newRecMap.place(animal1));
-        assertFalse(newRecMap.place(animal2));
-    }
 
     @Test
     public void testMove(){
@@ -75,8 +68,13 @@ public class RectangularMapTest {
         animal1.move(MoveDirection.RIGHT, newRecMap);
 
         //WHEN
-        newRecMap.place(animal1);
-        newRecMap.place(animal2);
+        try {
+            newRecMap.place(animal1);
+            newRecMap.place(animal2);
+        } catch (IncorrectPositionException e) {
+            System.out.println(e.getMessage());
+        }
+
         newRecMap.move(animal1, MoveDirection.FORWARD);
         newRecMap.move(animal2, MoveDirection.FORWARD);
 

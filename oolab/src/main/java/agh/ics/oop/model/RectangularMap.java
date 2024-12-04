@@ -8,4 +8,6 @@ public class RectangularMap extends AbstractWorldMap
         this.lowerLeft = new Vector2d(0,0);
         this.upperRight = new Vector2d(width,height);
     }
+
+
 }
