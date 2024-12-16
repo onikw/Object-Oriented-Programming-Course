@@ -1,6 +1,8 @@
 package agh.ics.oop;
 
 import agh.ics.oop.model.*;
+import agh.ics.oop.simulation.Simulation;
+import agh.ics.oop.simulation.SimulationEngine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ public class World {
     public static void main(String[] args) {
         System.out.println("system wystartował");
         try{
+
             List<Simulation> simulations = new ArrayList<>();
 
 

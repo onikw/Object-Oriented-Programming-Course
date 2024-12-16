@@ -1,4 +1,4 @@
-package agh.ics.oop;
+package agh.ics.oop.simulation;
 
 import agh.ics.oop.model.*;
 
@@ -49,6 +49,11 @@ public class Simulation implements Runnable {
             Animal animal =  animals.get(i%numberOfAnimals);
             MoveDirection move = moves.get(i);
             worldMap.move(animal, move);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

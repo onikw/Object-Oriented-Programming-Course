@@ -11,15 +11,14 @@ public abstract class AbstractWorldMap implements WorldMap
     protected final MapVisualizer visualizer;
     protected Vector2d lowerLeft = new Vector2d(Integer.MIN_VALUE, Integer.MIN_VALUE);
     protected Vector2d upperRight = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
-    protected final Boundary boundary;
     protected final UUID id;
+    protected Boundary boundary;
 
     protected final List<MapChangeListener> observers = new ArrayList<>();
 
     protected AbstractWorldMap() {
         this.animals = new HashMap<>();
         this.visualizer = new MapVisualizer(this);
-        this.boundary = new Boundary(lowerLeft, upperRight);
         this.id = UUID.randomUUID();
     }
 
@@ -64,8 +63,6 @@ public abstract class AbstractWorldMap implements WorldMap
         return boundary;
     }
 
-
-    //tu też źle mam
     @Override
     public String toString() {
         return visualizer.draw(getCurrentBounds().lowerLeft(), getCurrentBounds().upperRight());

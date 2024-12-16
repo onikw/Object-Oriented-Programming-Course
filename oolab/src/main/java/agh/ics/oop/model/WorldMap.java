@@ -1,5 +1,7 @@
 package agh.ics.oop.model;
 
+import agh.ics.oop.model.util.Boundary;
+
 import java.util.LinkedList;
 
 /**
@@ -43,6 +45,6 @@ public interface WorldMap extends MoveValidator {
 
     LinkedList<WorldElement> getElements();
 
-
+    public Boundary getCurrentBounds();
     String getId();
 }
