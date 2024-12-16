@@ -5,7 +5,7 @@ import agh.ics.oop.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Simulation {
+public class Simulation implements Runnable {
 
     private int numberOfAnimals = 0;
     private int movesCount = 0;
@@ -42,7 +42,7 @@ public class Simulation {
         return animals;
     }
 
-    public void Run()
+    public void run()
     {
         for (int i = 0; i < movesCount; i++)
         {

@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class GrassField extends AbstractWorldMap
 {
+    private static final String MAP_NAME="Grassfield";
+
     int grassCount;
     private final Map<Vector2d, Grass> grasses;
 
@@ -21,6 +23,13 @@ public class GrassField extends AbstractWorldMap
         for (Vector2d grassPosition : randomPositionGenerator) {
             grasses.put(grassPosition, new Grass(grassPosition));
         }
+    }
+
+
+    @Override
+    public String getId(){
+        return String.format("%s %s",MAP_NAME,id.toString());
+
     }
 
     @Override
@@ -47,6 +56,7 @@ public class GrassField extends AbstractWorldMap
     }
 
 
+    //to chyba źle mam
     @Override
     public String toString()
     {
