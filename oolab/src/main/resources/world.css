@@ -1,0 +1,24 @@
+Label {
+    -fx-alignment: center;
+    -fx-font-size: 20;
+    -fx-text-fill: #671717;
+    -fx-opacity: 0.5;
+
+}
+
+HBox {
+    -fx-alignment: center;
+    -fx-spacing: 8;
+}
+
+VBox {
+    -fx-alignment: center;
+    -fx-spacing: 16;
+    -fx-padding: 16;
+}
+
+
+Button {
+    -fx-pref-width: 128;
+    -fx-pref-height: 32;
+}
