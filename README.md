@@ -18,6 +18,7 @@ The instructions for the tasks in Polish can be found [here](https://github.com/
 | Lab 7      | lab7        | [lab7](https://github.com/onikw/Object-Oriented-Programming-Course/tree/lab7) |
 | Lab 8      | lab8        | [lab8](https://github.com/onikw/Object-Oriented-Programming-Course/tree/lab8) |
 
+### There is also my final project [Darwin world simulation](https://github.com/martowicz/Darwin_World) 
 ## License
 
 This repository is licensed under the MIT License. For more details, see the [LICENSE](https://github.com/onikw/Object-Oriented-Programming-Course/blob/main/LICENCE) file.
